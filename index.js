@@ -69,31 +69,6 @@ console.log("========== EJERCICIO 3 ==========");
 console.log(buscarProducto("Camisa", inventario));
 
 
-
-// =====================================
-// EJERCICIO 4
-// Calcular Promedio de Notas
-// =====================================
-
-function calcularPromedio(notas) {
-
-    let suma = 0;
-
-    for (let i = 0; i < notas.length; i++) {
-
-        suma += notas[i];
-    }
-
-    let promedio = suma / notas.length;
-
-    return promedio.toFixed(2);
-}
-
-console.log("========== EJERCICIO 4 ==========");
-console.log("Promedio:", calcularPromedio([4.5, 3.8, 5.0]));
-
-
-
 // =====================================
 // EJERCICIO 5
 // Filtrar Usuarios por Edad
@@ -181,3 +156,38 @@ function convertirMoneda(monto, monedaDestino) {
 
 console.log("========== EJERCICIO 8 ==========");
 console.log(convertirMoneda(100000, "USD"));
+
+// =====================================
+// EJERCICIO 4
+// Calcular Promedio de Notas
+// =====================================
+// Ejercicio 4: Calcular Promedio de Notas
+
+const readline = require("readline");
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function calcularPromedio(notas) {
+
+    let suma = 0;
+
+    for (let i = 0; i < notas.length; i++) {
+        suma += notas[i];
+    }
+
+    return (suma / notas.length).toFixed(2);
+}
+
+console.log("========== EJERCICIO 4 =========="); // 👈 PRIMERO EL TÍTULO
+
+rl.question("Ingrese las notas separadas por coma: ", (entrada) => {
+
+    let notas = entrada.split(",").map(Number);
+
+    console.log("Promedio:", calcularPromedio(notas));
+
+    rl.close();
+});
